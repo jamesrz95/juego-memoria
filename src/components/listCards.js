@@ -83,5 +83,15 @@ const WrapperList = styled.div`
   row-gap: 10px;
   column-gap: 70px;
   margin-bottom: 10rem;
+
+  button {
+    height: 40%;
+    width: 20%;
+    font-size: 1.5rem;
+    border: 2px solid;
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 `;
 export default ListCards;

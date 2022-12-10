@@ -10,7 +10,11 @@ const Card = ({ item, id, handleChoice, flipped }) => {
   };
 
   return (
-    <CardStyle>
+    <CardStyle
+      animate={{ opacity: 1 }}
+      transition={{ ease: "easeOut", duration: 2 }}
+      whileHover={{ scale: 1, ease: "easeOutIn" }}
+    >
       <div
         className={flipped ? "flip-card-inner flipped" : "flip-card-inner"}
         onClick={handleClick}
@@ -26,13 +30,13 @@ const Card = ({ item, id, handleChoice, flipped }) => {
   );
 };
 
-const CardStyle = styled.div`
+const CardStyle = styled(motion.div)`
   height: 80%;
   width: 8%;
   border-radius: 5px;
   margin: 10px;
   cursor: pointer;
-
+  opacity: 0;
   .flip-card-inner.flipped {
     transform: rotateY(180deg);
   }
@@ -49,13 +53,13 @@ const CardStyle = styled.div`
     transition: transform 0.6s ease;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-    border: 3px solid;
+    border: 5px solid transparent;
     border-radius: 10px;
   }
 
   .flip-card-inner:hover,
   .flip-card-inner:focus {
-    border: 3px solid;
+    border: 5px solid;
     border-color: orange;
   }
 
