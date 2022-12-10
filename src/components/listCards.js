@@ -1,13 +1,14 @@
+import { useEffect, useState } from "react";
 import Card from "./Card";
 //import cards list
 import cards from "../data";
+// import styles
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 
-const ListCards = () => {
+const ListCards = ({ turns, setTurns }) => {
   const [cardsGame, setCardsGame] = useState([]);
-  const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
 
@@ -27,10 +28,6 @@ const ListCards = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns((prev) => prev + 1);
-  };
-
-  const resetGame = () => {
-    setCardsGame([]);
   };
 
   useEffect(() => {
@@ -56,7 +53,9 @@ const ListCards = () => {
   return (
     <WrapperList>
       {cardsGame.length === 0 ? (
-        <button onClick={shuffleCards}>Start new Game</button>
+        <motion.button onClick={shuffleCards} whileTap={{}}>
+          Start new Game
+        </motion.button>
       ) : (
         ""
       )}
@@ -83,6 +82,25 @@ const WrapperList = styled.div`
   flex-wrap: wrap;
   row-gap: 10px;
   column-gap: 70px;
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
+
+  button {
+    height: 40%;
+    width: 20%;
+    font-size: 1.5rem;
+    border: 2px solid #f52576;
+    outline: 2px solid #0e141b;
+    background: transparent;
+    border-radius: 10px;
+    outline-offset: -10px;
+    transition: outline-offset 200ms ease;
+    transition: all 200ms ease;
+    cursor: pointer;
+  }
+  button:hover {
+    border-radius: 20px;
+    outline-offset: 2px;
+    font-size: 1.8rem;
+  }
 `;
 export default ListCards;

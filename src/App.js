@@ -1,15 +1,23 @@
+import { useState } from "react";
 import styled from "styled-components";
 // import components
 import ListCards from "./components/listCards";
 
 function App() {
+  const [turns, setTurns] = useState(0);
+
   return (
     <Wrapper>
       <Header>
         <h1>Welcome to Memoramas Test</h1>
+        <div className="header-item">
+          <p>
+            Turn: <span>{turns}</span>
+          </p>
+        </div>
       </Header>
       <LayoutGame>
-        <ListCards />
+        <ListCards turns={turns} setTurns={setTurns} />
       </LayoutGame>
     </Wrapper>
   );
@@ -39,12 +47,27 @@ const LayoutGame = styled.div`
 const Header = styled.div`
   height: 5rem;
   width: 90vw;
-  background: white;
   border-radius: 1rem;
   margin-bottom: 10px;
-
+  display: flex;
+  align-items: center;
   h1 {
     padding: 15px;
+  }
+  .header-item {
+    position: absolute;
+    right: 200px;
+    font-size: 1.5rem;
+    color: white;
+    border: 2px solid;
+    border-radius: 10px;
+  }
+  .header-item p {
+    margin: 5px;
+    padding: 5px;
+  }
+  .header-item span {
+    color: #fb2576;
   }
 `;
 
