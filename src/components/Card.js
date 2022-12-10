@@ -1,5 +1,6 @@
+// styles library
 import styled from "styled-components";
-
+import { motion } from "framer-motion";
 // images
 import IMAGES from "../img/cards/index.js";
 
@@ -14,9 +15,9 @@ const Card = ({ item, id, handleChoice, flipped }) => {
         className={flipped ? "flip-card-inner flipped" : "flip-card-inner"}
         onClick={handleClick}
       >
-        <div className="flip-card-front">
+        <motion.div className="flip-card-front" whileTap={{ scale: 0.9 }}>
           <img src={IMAGES.cover} alt="" />
-        </div>
+        </motion.div>
         <div className="flip-card-back">
           <img src={item.img} alt="card" />
         </div>
@@ -47,14 +48,14 @@ const CardStyle = styled.div`
     height: 100%;
     transition: transform 0.6s ease;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border: 5px solid;
-    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    border: 3px solid;
+    border-radius: 10px;
   }
 
   .flip-card-inner:hover,
   .flip-card-inner:focus {
-    border: 5px solid;
+    border: 3px solid;
     border-color: orange;
   }
 

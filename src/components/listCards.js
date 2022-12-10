@@ -5,9 +5,8 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const ListCards = () => {
+const ListCards = ({ turns, setTurns }) => {
   const [cardsGame, setCardsGame] = useState([]);
-  const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
 
