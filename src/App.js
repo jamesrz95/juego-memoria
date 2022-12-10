@@ -8,7 +8,9 @@ function App() {
       <Header>
         <h1>Welcome to Memoramas Test</h1>
       </Header>
-      <LayoutGame></LayoutGame>
+      <LayoutGame>
+        <Card />
+      </LayoutGame>
     </Wrapper>
   );
 }
