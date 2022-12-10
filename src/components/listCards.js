@@ -47,7 +47,7 @@ const ListCards = ({ turns, setTurns }) => {
         setTimeout(() => restTurn(), 1000);
       }
     }
-  }, [choiceOne, choiceTwo]);
+  }, [choiceOne, choiceTwo, restTurn]);
 
   console.log("New Cards: ", cardsGame);
   return (
