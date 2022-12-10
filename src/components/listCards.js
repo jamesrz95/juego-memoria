@@ -53,7 +53,10 @@ const ListCards = ({ turns, setTurns }) => {
   return (
     <WrapperList>
       {cardsGame.length === 0 ? (
-        <motion.button onClick={shuffleCards} whileTap={{}}>
+        <motion.button
+          onClick={shuffleCards}
+          whileTap={{ background: "#f52576" }}
+        >
           Start new Game
         </motion.button>
       ) : (
