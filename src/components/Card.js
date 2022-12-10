@@ -26,8 +26,8 @@ const Card = ({ item, id, handleChoice, flipped }) => {
 };
 
 const CardStyle = styled.div`
-  height: 50%;
-  width: 10%;
+  height: 80%;
+  width: 8%;
   border-radius: 5px;
   margin: 10px;
   cursor: pointer;

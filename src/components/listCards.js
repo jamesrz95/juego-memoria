@@ -55,7 +55,11 @@ const ListCards = () => {
   console.log("New Cards: ", cardsGame);
   return (
     <WrapperList>
-      {!cardsGame ? <button onClick={shuffleCards}>Start new Game</button> : ""}
+      {cardsGame.length === 0 ? (
+        <button onClick={shuffleCards}>Start new Game</button>
+      ) : (
+        ""
+      )}
       {cardsGame &&
         cardsGame.map((item) => (
           <Card
@@ -70,7 +74,7 @@ const ListCards = () => {
 };
 
 const WrapperList = styled.div`
-  height: 40%;
+  height: 20%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -79,6 +83,6 @@ const WrapperList = styled.div`
   flex-wrap: wrap;
   row-gap: 10px;
   column-gap: 70px;
-  margin-bottom: 5rem;
+  margin-bottom: 10rem;
 `;
 export default ListCards;
