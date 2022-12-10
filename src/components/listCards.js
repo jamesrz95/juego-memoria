@@ -47,7 +47,8 @@ const ListCards = ({ turns, setTurns }) => {
         setTimeout(() => restTurn(), 1000);
       }
     }
-  }, [choiceOne, choiceTwo, restTurn]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [choiceOne, choiceTwo]);
 
   console.log("New Cards: ", cardsGame);
   return (
