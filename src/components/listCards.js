@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 
-const ListCards = ({ turns, setTurns }) => {
+const ListCards = ({ setTurns, setCardsRemaining, cardsRemaining }) => {
   const [cardsGame, setCardsGame] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
@@ -17,6 +17,7 @@ const ListCards = ({ turns, setTurns }) => {
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: uuidv4() }));
     setCardsGame(pairCards);
+    setCardsRemaining(pairCards.length);
     setTurns(0);
   };
 
@@ -36,6 +37,7 @@ const ListCards = ({ turns, setTurns }) => {
         setCardsGame((prevCards) => {
           return prevCards.map((card) => {
             if (card.img === choiceOne.img) {
+              setCardsRemaining(cardsRemaining - 2);
               return { ...card, isMatch: true };
             } else {
               return card;
