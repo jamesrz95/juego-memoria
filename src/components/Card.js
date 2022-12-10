@@ -3,15 +3,22 @@ import styled from "styled-components";
 // images
 import IMAGES from "../img/cards/index.js";
 
-const Card = () => {
+const Card = ({ item, id, handleChoice, flipped }) => {
+  const handleClick = () => {
+    handleChoice(item);
+  };
+
   return (
     <CardStyle>
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
+      <div
+        className={flipped ? "flip-card-inner flipped" : "flip-card-inner"}
+        onClick={handleClick}
+      >
+        <div className="flip-card-front">
           <img src={IMAGES.cover} alt="" />
         </div>
-        <div class="flip-card-back">
-          <img src={IMAGES.wolf} alt="" />
+        <div className="flip-card-back">
+          <img src={item.img} alt="card" />
         </div>
       </div>
     </CardStyle>
@@ -19,17 +26,18 @@ const Card = () => {
 };
 
 const CardStyle = styled.div`
-  height: 16rem;
-  width: 12rem;
+  height: 50%;
+  width: 10%;
   border-radius: 5px;
   margin: 10px;
+  cursor: pointer;
 
-  &:hover .flip-card-inner {
+  .flip-card-inner.flipped {
     transform: rotateY(180deg);
   }
   img {
-    height: 16rem;
-    width: 12rem;
+    height: 100%;
+    width: 100%;
     object-fit: fill;
   }
 
@@ -58,10 +66,6 @@ const CardStyle = styled.div`
     height: 100%;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
-  }
-
-  /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
   }
 
   /* Style the back side */

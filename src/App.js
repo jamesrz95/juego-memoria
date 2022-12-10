@@ -1,6 +1,6 @@
 import styled from "styled-components";
 // import components
-import Card from "./components/Card";
+import ListCards from "./components/listCards";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <h1>Welcome to Memoramas Test</h1>
       </Header>
       <LayoutGame>
-        <Card />
+        <ListCards />
       </LayoutGame>
     </Wrapper>
   );
@@ -27,15 +27,18 @@ const Wrapper = styled.div`
   }
 `;
 const LayoutGame = styled.div`
-  height: 70vh;
-  width: 80vw;
+  height: 80%;
+  width: 90%;
   background: white;
   border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Header = styled.div`
   height: 5rem;
-  width: 80vw;
+  width: 90vw;
   background: white;
   border-radius: 1rem;
   margin-bottom: 10px;

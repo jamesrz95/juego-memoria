@@ -8,7 +8,7 @@ const IMAGES = {
   colibri: require("../cards/006.png"),
   earlessSea: require("../cards/007.png"),
   bird2: require("../cards/008.png"),
-  whale: require("../cards/006.png"),
+  whale: require("../cards/009.png"),
 };
 
 export default IMAGES;
