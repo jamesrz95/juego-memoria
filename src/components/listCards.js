@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import Modal from "../Modal";
+
 //import cards list
 import cards from "../data";
 // import styles
@@ -7,10 +9,11 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 
-const ListCards = ({ setTurns, setCardsRemaining, cardsRemaining }) => {
+const ListCards = ({ setTurns, setCardsRemaining, cardsRemaining, turns }) => {
   const [cardsGame, setCardsGame] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
 
   const shuffleCards = () => {
     const pairCards = [...cards, ...cards]
@@ -51,10 +54,14 @@ const ListCards = ({ setTurns, setCardsRemaining, cardsRemaining }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [choiceOne, choiceTwo]);
+  useEffect(() => {
+    if (cardsRemaining === 0) setOpenModal(true);
+  }, [cardsRemaining]);
 
   console.log("New Cards: ", cardsGame);
   return (
     <WrapperList>
+      <Modal openModal={openModal} turns={turns} />
       {cardsGame.length === 0 ? (
         <motion.button
           onClick={shuffleCards}

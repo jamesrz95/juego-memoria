@@ -5,7 +5,7 @@ import ListCards from "./components/listCards";
 
 function App() {
   const [turns, setTurns] = useState(0);
-  const [cardsRemaining, setCardsRemaining] = useState(0);
+  const [cardsRemaining, setCardsRemaining] = useState();
 
   return (
     <Wrapper>
@@ -25,6 +25,7 @@ function App() {
           setTurns={setTurns}
           setCardsRemaining={setCardsRemaining}
           cardsRemaining={cardsRemaining}
+          turns={turns}
         />
       </LayoutGame>
     </Wrapper>
